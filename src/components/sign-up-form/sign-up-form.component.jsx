@@ -32,7 +32,7 @@ const SignUpForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        if (password != confirmPassword) {
+        if (password !== confirmPassword) {
             alert('Passwords do not match');
             return;
         }
@@ -46,7 +46,7 @@ const SignUpForm = () => {
         } catch(error) {
             console.log('user creation encountered an error', error);
 
-            if (error.code == 'auth/email-already-in-uer') {
+            if (error.code === 'auth/email-already-in-uer') {
                 alert('Cannot create user, email already exists');
             }
         }

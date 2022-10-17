@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import {default as CheckoutItemComponent} from '../checkout-item/checkout-item.component';
 
 export const CheckoutContainer = styled.div`
     width: 55%;

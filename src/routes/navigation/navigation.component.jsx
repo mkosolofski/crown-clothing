@@ -1,4 +1,4 @@
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { Fragment } from 'react';
 import { ReactComponent as CrownLogo } from './../../assets/crown.svg';
 import { signOutUser } from './../../utils/firebase.utils';
