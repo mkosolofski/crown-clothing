@@ -99,12 +99,5 @@ export const getCategoriesAndDocuments = async () => {
 
     const querySnapshot = await getDocs(q);
 
-    return querySnapshot.docs.reduce(
-        (accumulator, docSnapshot) => {
-            const {title, items, imageUrl} = docSnapshot.data()
-            accumulator[title.toLowerCase()] = {items, imageUrl};
-            return accumulator;
-        },
-        []
-    );
+    return querySnapshot.docs.map(docSnapshot => docSnapshot.data());
 }

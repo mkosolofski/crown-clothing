@@ -1,9 +1,11 @@
 import CategoryList from './../../components/category-list/category-list.component';
-import { CategoriesContext } from '../../contexts/categories.context';
 import { useContext } from 'react';
 
+import { useSelector } from 'react-redux';
+import { selectCategoriesMap } from '../../store/categories/categories.selector';
+
 const Home = () => {
-    const {categoriesMap} = useContext(CategoriesContext);
+    const categoriesMap = useSelector(selectCategoriesMap);
 
     return (
         <CategoryList categories={categoriesMap} />
