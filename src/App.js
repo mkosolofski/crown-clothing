@@ -5,23 +5,17 @@ import Shop from './routes/shop/shop.component';
 import Checkout from './routes/checkout/checkout.component';
 import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { onAuthStateChangedListener, createUserDocumentFromAuth } from './utils/firebase.utils'; 
 import { setCurrentUser } from './store/user/user.action';
-import { setCategories } from './store/categories/categories.action';
-import { getCategoriesAndDocuments } from './utils/firebase.utils';
+import { fetchCategoriesAsync } from './store/categories/categories.action';
 
 const App = () => {
-
     const dispatch = useDispatch();
 
-    useEffect(()=>
-        {
-            const getCategoriesMap = async () => {
-                dispatch(setCategories(await getCategoriesAndDocuments()));
-            }
-
-            getCategoriesMap();
+    useEffect(
+        () => {
+            dispatch(fetchCategoriesAsync);
         },
         [dispatch]
     );
