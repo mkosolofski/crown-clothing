@@ -8,14 +8,14 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { onAuthStateChangedListener, createUserDocumentFromAuth } from './utils/firebase.utils'; 
 import { setCurrentUser } from './store/user/user.action';
-import { fetchCategoriesAsync } from './store/categories/categories.action';
+import { fetchCategoriesStart } from './store/categories/categories.action';
 
 const App = () => {
     const dispatch = useDispatch();
 
     useEffect(
         () => {
-            dispatch(fetchCategoriesAsync);
+            dispatch(fetchCategoriesStart());
         },
         [dispatch]
     );
